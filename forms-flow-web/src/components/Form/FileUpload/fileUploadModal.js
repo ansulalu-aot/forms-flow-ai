@@ -71,8 +71,7 @@ const FileModal = React.memo(({ modalOpen = false, onClose, forms }) => {
           )}
         </Modal.Body>
         <Modal.Footer>
-
-          <Button style={{ width: "20%" }} type="button" className="btn btn-default" onClick={onClose}>
+          <Button data-testid="close-button" style={{ width: "20%" }} type="button" className="btn btn-default" onClick={onClose}>
             <Translation>{(t) => t("Close")}</Translation>
           </Button>
         </Modal.Footer>

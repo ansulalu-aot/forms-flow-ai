@@ -18,9 +18,9 @@ const SavingLoading = ({ saved, text }) => {
       }`}
     >
       {saved ? (
-        <i className="fa fa-check-circle-o text-success" aria-hidden="true"></i>
+        <i className="fa fa-check-circle-o text-success" aria-hidden="true" data-testid="checkmark-icon"></i>
       ) : (
-        <i className="fa fa-spinner loading-animation" aria-hidden="true"></i>
+        <i className="fa fa-spinner loading-animation" aria-hidden="true" data-testid="spinner-icon"></i>
       )}
       <span className="px-2 text-success">{text}</span>
     </div>
