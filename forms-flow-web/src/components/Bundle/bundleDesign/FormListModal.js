@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useEffect, useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import {
@@ -50,6 +51,7 @@ const FormListModal = React.memo(
     );
     const [seletedFormIds, setSelectedFormIds] = useState([]);
     const [search, setSearch] = useState(searchText || "");
+    const [selectAll, setSelectAll] = useState(false);
 
 
     const forms = useSelector((state) => state.bundle?.bundleForms.forms);
@@ -104,6 +106,7 @@ const FormListModal = React.memo(
         dispatch(setBundleFormListPage(1));
         setSelectedForms([]);
         setSelectedFormIds([]);
+        setSelectAll(false);
       }
     }, [pageNo, showModal, searchText,sortOrder]);
 
@@ -117,6 +120,11 @@ const FormListModal = React.memo(
         setSelectedFormIds([]);
       }
     }, [formsAlreadySelected,showModal]);
+
+    useEffect(() => {
+      const allSelected = forms.length > 0 && forms.every(form => seletedFormIds.includes(form.parentFormId));
+      setSelectAll(allSelected);
+    }, [seletedFormIds]);
 
     const updateSort = () => {
       let updatedSort;
@@ -159,6 +167,18 @@ const FormListModal = React.memo(
           prev.filter((item) => item.parentFormId !== form.parentFormId)
         );
       }
+    };
+
+    const handleSelectAll = () => {
+      if (selectAll) {
+        setSelectedFormIds([]);
+        setSelectedForms([]);
+      } else {
+        const ids = forms.map((form) => form.parentFormId);
+        setSelectedFormIds(ids);
+        setSelectedForms(forms);
+      }
+      setSelectAll(!selectAll);
     };
 
     const handleSearch = () => {
@@ -247,7 +267,11 @@ const FormListModal = React.memo(
                       <Table aria-label="simple table">
                         <TableHead>
                           <TableRow>
-                            <StyledTableCell></StyledTableCell>
+                            <StyledTableCell>
+                              <Checkbox
+                              onChange={handleSelectAll}
+                              checked={selectAll}/>
+                            </StyledTableCell>
                             <StyledTableCell>Form Name</StyledTableCell>
                             <StyledTableCell>Type</StyledTableCell>
                             <StyledTableCell>Action</StyledTableCell>
@@ -258,7 +282,7 @@ const FormListModal = React.memo(
                             <>
                               <TableRow>
                                 <StyledTableCell align="left">
-                                  <Checkbox
+                                  <Checkbox color="primary"
                                     checked={seletedFormIds?.includes(
                                       form.parentFormId
                                     )}

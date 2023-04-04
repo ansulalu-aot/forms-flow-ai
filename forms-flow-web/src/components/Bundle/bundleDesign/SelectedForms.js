@@ -74,7 +74,7 @@ const SelectedForms = ({ handleModalChange, selectedForms, deleteForm }) => {
                 onDragOver={onDragOver}
                 onDrop={(e) => onDrop(e, index)}
               >
-                <StyledTableCell><span className="font-weight-bold">:::</span></StyledTableCell>
+                <StyledTableCell><span className="dot-separator font-weight-bold">:::</span></StyledTableCell>
                 <StyledTableCell>{form.formOrder}</StyledTableCell>
                 <StyledTableCell>{form.formName}</StyledTableCell>
                 <StyledTableCell>{_capitalize(form.formType)}</StyledTableCell>
