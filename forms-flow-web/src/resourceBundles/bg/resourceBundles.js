@@ -1,5 +1,7 @@
 /* eslint-disable max-len */
 export const RESOURCE_BUNDLES_BG = {
+    "Select form version":"Изберете версия на формуляра",
+    "Please remove the special characters...!":"Моля, премахнете специалните символи...!",
     "No histories found":"Няма намерени истории",
     "Continue":"продължи",
     "This will create a new version of the form without changing the path name but with new form id.":"Това ще създаде нова версия на формуляра без промяна на името на пътя, но с нов идентификатор на формуляра.",
@@ -36,7 +38,7 @@ export const RESOURCE_BUNDLES_BG = {
     "Enter Label":"Въведете етикет",
     "Select form field":"Изберете поле на формуляра",
     "Add form fields to display in task list":"Добавете полета на формуляра за показване в списъка със задачи",
-    "Version":"Версия",
+    "Latest Version":"Последна версия",
     "Submission Status":"Състояние на подаване",
     "No submission status":"Няма състояние на подаване",
     "No Public url found":"Не е намерен публичен URL адрес",
@@ -238,6 +240,7 @@ export const RESOURCE_BUNDLES_BG = {
     "Changing the form workflow will not affect the existing applications. It will only update in the newly created applications. Press Save Changes to continue or cancel the changes.":"Промяната на работния процес на формуляра няма да засегне съществуващите приложения. Той ще се актуализира само в новосъздадените приложения. Натиснете Запазване на промените, за да продължите или отмените промените.",
     "Form Workflow Association Saved.":"Асоциацията на работния поток на формуляра е запазена.",
     "Form deleted successfully":"Формулярът е изтрит успешно",
+    "Form deletion unsuccessful":"Изтриването на формуляра е неуспешно",
     "Form process failed":"Обработката на формуляра не бе успешно",
     "Form unpublishing Failed":"Прекратяването на публикуването на формуляра не бе успешно",
     "All groups have access to the dashboard":"Всички групи имат достъп до таблото",
@@ -275,5 +278,5 @@ export const RESOURCE_BUNDLES_BG = {
     "Click Here to Copy":"Щракнете тук, за да копирате",
     "Resources":"Ресурси",
     "Duplicate form created successfully":"Дублираният формуляр е създаден успешно",
-    "Revert": "Връщане"
+    "Revert": "Връщане",
 };

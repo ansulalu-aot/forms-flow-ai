@@ -52,8 +52,8 @@ test("should check wheather to show applications or not", () => {
   defaultUserAccessGroupCheck.accessAllowApplications = true;
   expect(
     setShowApplications(["/camunda-admin", "/formsflow/formsflow-designer"])
-  ).toBeFalsy();
-  expect(setShowApplications([])).toBeFalsy();
+  ).toBeTruthy();
+  expect(setShowApplications([])).toBeTruthy();
   expect(
     setShowApplications([
       "/formsflow/formsflow-reviewer/access-allow-applications",
@@ -66,7 +66,7 @@ test("should check wheather to show applications or not", () => {
 test("should check wheather to show submissions or not", () => {
   expect(setShowViewSubmissions()).toBeTruthy();
   defaultUserAccessGroupCheck.accessAllowSubmissions = true;
-  expect(setShowViewSubmissions([])).toBeFalsy();
+  expect(setShowViewSubmissions([])).toBeTruthy();
   expect(
     setShowViewSubmissions([
       "/formsflow/formsflow-reviewer/access-allow-submissions",

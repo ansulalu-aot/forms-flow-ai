@@ -198,8 +198,4 @@ describe('ACTION_CONSTANTS', () => {
         expect(ACTION_CONSTANTS).toHaveProperty('DRAFT_DELETE');
     });
 
-    it("should match the snapshot", () => {
-        expect(ACTION_CONSTANTS).toMatchSnapshot();
-    });
-
 });

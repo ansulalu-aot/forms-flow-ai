@@ -56,6 +56,6 @@ describe('featureFlags object', () => {
   });
 
   test('should have the correct values', () => {
-    expect(featureFlags.exportPdf).toBe(false);
+    expect(featureFlags.exportPdf).toBe(true);
   });
 });

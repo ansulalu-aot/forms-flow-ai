@@ -1,4 +1,4 @@
-import { httpGETRequest } from "../httpRequestHandler";
+import { RequestService } from "@formsflow/service";
 import API from "../endpoints";
 import {
   setMetricsDateRangeLoading,
@@ -30,9 +30,10 @@ export const fetchMetricsSubmissionCount = (
     /*eslint max-len: ["error", { "code": 170 }]*/
     let url = `${API.METRICS_SUBMISSIONS}?from=${fromDate}&to=${toDate}&orderBy=${searchBy}&pageNo=${pageNo}&limit=${limit}&sortBy=${sortsBy}&sortOrder=${sortOrder}`;
     if (formName) {
-      url += `&formName=${formName}`;
+      url += `&formName=${encodeURIComponent(formName)}`;
     }
-    httpGETRequest(url, {})
+
+    RequestService.httpGETRequest(url, {})
       .then((res) => {
         if (res.data) {
           dispatch(setMetricsDateRangeLoading(false));
@@ -81,7 +82,7 @@ export const fetchMetricsSubmissionStatusCount = (
       dispatch(setSelectedMetricsId(id));
     }
 
-    httpGETRequest(
+    RequestService.httpGETRequest(
       `${API.METRICS_SUBMISSIONS}/${id}?from=${fromDate}&to=${toDate}&orderBy=${setSearchBy}&formType=${options.parentId ? "parent" : "form"}`
     )
       .then((res) => {

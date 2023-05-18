@@ -1,30 +1,26 @@
 import React from "react";
-import { shallow } from "enzyme";
-import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
+import { render, screen, fireEvent } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
 import SubmissionError from "../../containers/SubmissionError";
-import { configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-
-configure({ adapter: new Adapter() });
-
-jest.mock("react-i18next", () => ({
-    useTranslation: () => ({
-      t: (str) => str,
-    }),
-  }));
 
 describe("SubmissionError", () => {
-  it("should render the error message passed as props", () => {
-    const message = "Something went wrong";
-    const wrapper = shallow(<SubmissionError modalOpen={true} message={message} />);
-    expect(wrapper.find(Modal.Body).text()).toEqual(message);
-  });
+  test("renders the error message and calls onConfirm when the button is clicked", () => {
+    const onConfirmMock = jest.fn();
+    const errorMessage = "Something went wrong";
 
-  it("should call onConfirm function when the Ok button is clicked", () => {
-    const onConfirm = jest.fn();
-    const wrapper = shallow(<SubmissionError modalOpen={true} onConfirm={onConfirm} />);
-    wrapper.find(Button).simulate("click");
-    expect(onConfirm).toHaveBeenCalled();
+    render(
+      <SubmissionError modalOpen={true} onConfirm={onConfirmMock} message={errorMessage} />
+    );
+
+    const errorTitle = screen.getByText("Error");
+    const errorBody = screen.getByText(errorMessage);
+    const confirmButton = screen.getByText("Ok");
+
+    expect(errorTitle).toBeInTheDocument();
+    expect(errorBody).toBeInTheDocument();
+
+    fireEvent.click(confirmButton);
+
+    expect(onConfirmMock).toHaveBeenCalledTimes(1);
   });
 });

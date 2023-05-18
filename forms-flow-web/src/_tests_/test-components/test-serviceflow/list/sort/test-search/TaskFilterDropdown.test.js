@@ -1,30 +1,34 @@
-import React from "react";
-import { shallow } from "enzyme";
+import { render, screen, fireEvent } from '@testing-library/react';
 import TaskFilterDropdown from "../../../../../../components/ServiceFlow/list/search/TaskFilterDropdown";
-import { taskFilters } from "../../../../../../components/ServiceFlow/constants/taskConstants";
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 
-Enzyme.configure({ adapter: new Adapter() });
+const mockFilters = [
+  { label: 'Filter 1' },
+  { label: 'Filter 2' },
+  { label: 'Filter 3' },
+];
 
-
-describe("TaskFilterDropdown component", () => {
-  const mockFilterSelect = jest.fn();
-  const wrapper = shallow(<TaskFilterDropdown onFilterSelect={mockFilterSelect} />);
-
-  it("renders without crashing", () => {
-    expect(wrapper.exists()).toBe(true);
+describe('TaskFilterDropdown', () => {
+  it('renders the filter items correctly', () => {
+    render(<TaskFilterDropdown onFilterSelect={() => {}} />);
+    
+    const filterItems = screen.getAllByRole('button');
+    expect(filterItems.length).toBe(mockFilters.length);
+    
+    filterItems.forEach((filterItem, index) => {
+      expect(filterItem.textContent).toBe(mockFilters[index].label);
+    });
   });
-
-  it("renders the correct number of filter items", () => {
-    const filterItems = wrapper.find(".filter-items");
-    expect(filterItems.children()).toHaveLength(taskFilters.length);
-  });
-
-  it("calls onFilterSelect prop function when a filter is clicked", () => {
-    const filterIndex = 0;
-    const filterItem = wrapper.find(".filter-items").childAt(filterIndex);
-    filterItem.simulate("click");
-    expect(mockFilterSelect).toHaveBeenCalledWith(taskFilters[filterIndex]);
+  
+  it('calls the onFilterSelect callback when a filter item is clicked', () => {
+    const mockOnFilterSelect = jest.fn();
+    render(<TaskFilterDropdown onFilterSelect={mockOnFilterSelect} />);
+    
+    const filterItems = screen.getAllByRole('button');
+    
+    fireEvent.click(filterItems[1]);
+    expect(mockOnFilterSelect).toHaveBeenCalledWith(mockFilters[1]);
+    
+    fireEvent.click(filterItems[2]);
+    expect(mockOnFilterSelect).toHaveBeenCalledWith(mockFilters[2]);
   });
 });

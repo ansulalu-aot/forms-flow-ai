@@ -49,20 +49,20 @@ const ChartForm = React.memo((props) => {
             <h2>{formName}</h2>
           </div>
           <p>
-            <span className="text-primary">{t("Version")} :</span>{" "}
+            <span className="text-primary">{t("Latest Version")} :</span>{" "}
             {`v${version}`}
           </p>
           </div>
           {
             sortedVersions.length > 1 ? (
               <div className="col-3">
-            <p className="form-label mb-0">Select form version</p>
+            <p className="form-label mb-0">{t("Select form version")}</p>
             <select className="form-select" aria-label="Default select example"  onChange={(e) =>{ handlePieData(e.target.value);}}>
                 {
                   sortedVersions.map((option)=> <option key={option.formId} 
                   value={option.formId}>v{option.version}</option>)
                 }
-                <option selected value={"all"}>All</option>
+                <option selected value={"all"}>{t("All")}</option>
             </select>
           </div>
             ) : ""

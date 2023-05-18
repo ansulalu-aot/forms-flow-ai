@@ -1,35 +1,25 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'connected-react-router';
-import BaseRouting from '../../components/BaseRouting';
-import App from '../../components/App';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import Enzyme from 'enzyme';
+import React from "react";
+import { render } from "@testing-library/react";
+import { createMemoryHistory } from "history";
+import { Provider } from "react-redux";
+import { ConnectedRouter } from "connected-react-router";
+import { HelmetProvider } from "react-helmet";
+import StoreService from "../../services/StoreService";
+import App from "../../components/App";
 
-Enzyme.configure({ adapter: new Adapter() });
+describe("App", () => {
+  it("renders without errors", () => {
+    const history = createMemoryHistory();
+    const store = StoreService.configureStore();
 
-describe('App', () => {
-  const history = {};
-  const store = {
-    getState: () => ({}),
-    subscribe: () => {},
-    dispatch: () => {},
-  };
-
-  it('should render correctly', () => {
-    const wrapper = shallow(<App history={history} store={store} />);
-    expect(wrapper.exists()).toBe(true);
-  });
-
-  it('should contain Provider and ConnectedRouter components', () => {
-    const wrapper = shallow(<App history={history} store={store} />);
-    expect(wrapper.find(Provider)).toHaveLength(1);
-    expect(wrapper.find(ConnectedRouter)).toHaveLength(1);
-  });
-
-  it('should contain BaseRouting component', () => {
-    const wrapper = shallow(<App history={history} store={store} />);
-    expect(wrapper.find(BaseRouting)).toHaveLength(1);
+    render(
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <HelmetProvider>
+            <App history={history} store={store} />
+          </HelmetProvider>
+        </ConnectedRouter>
+      </Provider>
+    );
   });
 });

@@ -1,6 +1,8 @@
 /* eslint-disable max-len */
 export const formio_resourceBundles = {
   en: {
+    "Select form version":"Select form version",
+    "Please remove the special characters...!":"Please remove the special characters...!",
     "No histories found":"No histories found",
     "Continue":"Continue",
     "This will create a new version of the form without changing the path name but with new form id.":"This will create a new version of the form without changing the path name but with new form id.",
@@ -36,6 +38,7 @@ export const formio_resourceBundles = {
     "Form unpublishing Failed": "Form unpublishing Failed",
     "Form process failed": "Form process failed",
     "Form deleted successfully": "Form deleted successfully",
+    "Form deletion unsuccessful":"Form deletion unsuccessful",
     "Form Workflow Association Saved.": "Form Workflow Association Saved.",
     "Loading...": "Loading...",
     "Changing the form workflow will not affect the existing applications. It will only update in the newly created applications. Press Save Changes to continue or cancel the changes.":
@@ -57,8 +60,8 @@ export const formio_resourceBundles = {
     "Enter Label": "Enter Label",
     "Select form field": "Select form field",
     "Add form fields to display in task list":
-      "Add form fields to display in task list",
-    "Version": "Version",
+    "Add form fields to display in task list",
+    "Latest Version": "Latest Version",
     "Dashboard": "Dashboard",
     "Dashboards": "Dashboards",
     "Submission Status": "Submission Status",
@@ -88,7 +91,7 @@ export const formio_resourceBundles = {
     "Save Form": "Save Form",
     "Cancel": "Cancel",
     "Confirm": "Confirm",
-    "wizard": "Wizard",
+    "Wizard": "Wizard",
     "Please fix the errors before submitting again.":
       "Please fix the errors before submitting again.",
     "Error in JSON file structure": "Error in JSON file structure",
@@ -298,6 +301,8 @@ export const formio_resourceBundles = {
   },
 
   "zh-CN": {
+    "Select form version":"选择表格版本",
+    "Please remove the special characters...!":"请删除特殊字符...！",
     "No histories found":"没有找到历史记录",
     "Continue":"继续",
     "This will create a new version of the form without changing the path name but with new form id.":"这将创建一个新版本的表单而不更改路径名但具有新的表单 ID。",
@@ -332,6 +337,7 @@ export const formio_resourceBundles = {
     "Form unpublishing Failed": "表单取消发布失败",
     "Form process failed": "表单处理失败",
     "Form deleted successfully": "表格删除成功",
+    "Form deletion unsuccessful":"表单删除失败",
     "Loading...": "正在加载...",
     "Changing the form workflow will not affect the existing applications. It will only update in the newly created applications. Press Save Changes to continue or cancel the changes.":
       "更改表单工作流程不会影响现有应用程序。它只会在新创建的应用程序中更新。按保存更改以继续或取消更改。",
@@ -1206,6 +1212,8 @@ export const formio_resourceBundles = {
   },
 
   bg: {
+    "Select form version":"Изберете версия на формуляра",
+    "Please remove the special characters...!":"Моля, премахнете специалните символи...!",
     "No histories found":"Няма намерени истории",
     "Continue":"продължи",
     "This will create a new version of the form without changing the path name but with new form id.":"Това ще създаде нова версия на формуляра без промяна на името на пътя, но с нов идентификатор на формуляра.",
@@ -1242,6 +1250,7 @@ export const formio_resourceBundles = {
       "Прекратяването на публикуването на формуляра не бе успешно",
     "Form process failed": "Обработката на формуляра не бе успешно",
     "Form deleted successfully": "Формулярът е изтрит успешно",
+    "Form deletion unsuccessful":"Изтриването на формуляра е неуспешно",
     "Form Workflow Association Saved.":
       "Асоциацията на работния поток на формуляра е запазена.",
     "Loading...": "Зареждане...",
@@ -2173,6 +2182,8 @@ export const formio_resourceBundles = {
   },
 
   pt: {
+    "Select form version":"Selecione a versão do formulário",
+    "Please remove the special characters...!":"Remova os caracteres especiais...!",
     "No histories found":"Nenhum histórico encontrado",
     "Continue":"Prosseguir",
     "This will create a new version of the form without changing the path name but with new form id.":"Isso criará uma nova versão do formulário sem alterar o nome do caminho, mas com o novo ID do formulário.",
@@ -2208,6 +2219,7 @@ export const formio_resourceBundles = {
     "Form unpublishing Failed": "Falha ao cancelar a publicação do formulário",
     "Form process failed": "Falha no processo do formulário",
     "Form deleted successfully": "Formulário excluído com sucesso",
+    "Form deletion unsuccessful":"Falha na exclusão do formulário",
     "Show in list": "Mostrar na lista",
     "Loading...": "Carregando...",
     "Changing the form workflow will not affect the existing applications. It will only update in the newly created applications. Press Save Changes to continue or cancel the changes.":
@@ -3134,6 +3146,8 @@ export const formio_resourceBundles = {
   },
 
   fr: {
+    "Select form version":"Sélectionnez la version du formulaire",
+    "Please remove the special characters...!":"Veuillez supprimer les caractères spéciaux... !",
     "No histories found":"Aucun historique trouvé",
     "Continue":"Continuez",
     "This will create a new version of the form without changing the path name but with new form id.":"Cela créera une nouvelle version du formulaire sans changer le nom du chemin mais avec un nouvel identifiant de formulaire.",
@@ -3168,7 +3182,8 @@ export const formio_resourceBundles = {
       "Tous les groupes ont accès au tableau de bord",
     "Form unpublishing Failed": "Échec de la dépublication du formulaire",
     "Form process failed": "Le processus de formulaire a échoué",
-    "Form deleted successfully": "Form deleted successfully",
+    "Form deleted successfully": "Formulaire supprimé avec succèsy",
+    "Form deletion unsuccessful":"Échec de la suppression du formulaire",
     "Loading...": "Chargement...",
     "Changing the form workflow will not affect the existing applications. It will only update in the newly created applications. Press Save Changes to continue or cancel the changes.":
       "La modification du flux de travail du formulaire n'affectera pas les applications existantes. Il ne sera mis à jour que dans les applications nouvellement créées. Appuyez sur Enregistrer les modifications pour continuer ou annuler les modifications.",
@@ -4103,6 +4118,8 @@ export const formio_resourceBundles = {
   },
 
   de: {
+    "Select form version":"Formularversion auswählen",
+    "Please remove the special characters...!":"Bitte entfernen Sie die Sonderzeichen...!",
     "No histories found":"Keine Historien gefunden",
     "Continue":"Weitermachen",
     "This will create a new version of the form without changing the path name but with new form id.":"Dadurch wird eine neue Version des Formulars erstellt, ohne den Pfadnamen zu ändern, aber mit einer neuen Formular-ID.",
@@ -4138,7 +4155,8 @@ export const formio_resourceBundles = {
     "Form unpublishing Failed":
       "Das Aufheben der Veröffentlichung des Formulars ist fehlgeschlagen",
     "Form process failed": "Formularprozess fehlgeschlagen",
-    "Form deleted successfully": "Form deleted successfully",
+    "Form deleted successfully": "Formular erfolgreich gelöscht",
+    "Form deletion unsuccessful":"Formularlöschung fehlgeschlagen",
     "Form Workflow Association Saved.":
       "Formular-Workflow-Zuordnung gespeichert.",
     "Loading...": "Wird geladen...",

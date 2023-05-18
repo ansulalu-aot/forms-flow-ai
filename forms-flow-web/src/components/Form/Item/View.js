@@ -54,7 +54,10 @@ import {
 } from "../../../constants/constants";
 import useInterval from "../../../customHooks/useInterval";
 import selectApplicationCreateAPI from "./apiSelectHelper";
-import { getApplicationCount, getFormProcesses } from "../../../apiManager/services/processServices";
+import {
+  getApplicationCount,
+  getFormProcesses,
+} from "../../../apiManager/services/processServices";
 import { setFormStatusLoading } from "../../../actions/processActions";
 import SavingLoading from "../../Loading/SavingLoading";
 
@@ -62,6 +65,7 @@ const View = React.memo((props) => {
   const [formStatus, setFormStatus] = React.useState("");
   const { t } = useTranslation();
   const lang = useSelector((state) => state.user.lang);
+  const pubSub = useSelector((state) => state.pubSub);
   const formStatusLoading = useSelector(
     (state) => state.process?.formStatusLoading
   );
@@ -289,6 +293,12 @@ const View = React.memo((props) => {
     }
   }, [publicFormStatus]);
 
+  useEffect(()=>{
+    if(pubSub.publish){
+      pubSub.publish('ES_FORM', form);
+    }
+  },[form, pubSub.publish]);
+
   if (isActive || isPublicStatusLoading || formStatusLoading) {
     return (
       <div data-testid="loading-view-component">
@@ -317,7 +327,7 @@ const View = React.memo((props) => {
     <div className="container overflow-y-auto form-view-wrapper">
       {DRAFT_ENABLED &&
         isAuthenticated &&
-        isValidResource && 
+        isValidResource &&
         (formStatus === "active" ||
           (publicFormStatus?.anonymous === true &&
             publicFormStatus?.status === "active")) && (
